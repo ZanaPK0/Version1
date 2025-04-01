@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = ({
+    pageoneName
+}) => {
+    const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+        console.log({counter});
+    }, [counter])
+
     return (
         <nav className="flex flex-row">
 
@@ -10,8 +18,8 @@ const Navbar = () => {
             Home
             </NavLink>
 
-            <NavLink to ="/PageOne" className="m-2 p-2">
-            PageOne
+            <NavLink to ="/PageOne" className="m-2 p-2" onClick={() => setCounter(counter+1)}>
+            {pageoneName} {counter}
             </NavLink>
 
             <NavLink to ="/PageTwo" className="m-2 p-2">
