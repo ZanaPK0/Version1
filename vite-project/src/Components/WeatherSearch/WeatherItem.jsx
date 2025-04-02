@@ -28,11 +28,6 @@ const { location, current } = weatherData;
     return (
       <>
 
-
-
-
-
-
 <div className="weather-item border p-4">
       <h2>{location.name}</h2>
       <div>
@@ -52,35 +47,6 @@ const { location, current } = weatherData;
         </p>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-    {/* <div className="weather-item border p-4">
-      <h2>{location.name}</h2>
-      <div>
-        {Object.entries(location).map(([key, value]) => (
-          <p key={key}>
-            <strong>{key}:</strong> {value.toString()}
-          </p>
-        ))}
-      </div>
-      <div>
-        <h3>Current Conditions</h3>
-        <p><strong>Temperature:</strong> {current.temp_c}°C</p>
-        <p><strong>Condition:</strong> {current.condition.text}</p>
-      </div>
-    </div> */}
-
-
-
-
 
       </>
     );

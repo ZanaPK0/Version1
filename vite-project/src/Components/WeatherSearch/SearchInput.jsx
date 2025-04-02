@@ -6,7 +6,7 @@ function SearchInput() {
 
 
   const dispatch = useDispatch();
-  const [query, setQuery] = useState("London");
+  const [query, setQuery] = useState("");
 
 
   const handleInputChange = (e) => {
@@ -14,9 +14,12 @@ function SearchInput() {
     setQuery(e.target.value);
   };
 
-    useEffect(() => {
-        dispatch(fetchWeather("London"));
-      }, [dispatch]);
+
+
+  // Having this makes it always load Stockholm when going back to HomePage. 
+    // useEffect(() => {
+    //     dispatch(fetchWeather("Stockholm"));
+    //   }, [dispatch]);
 
 
 
@@ -50,6 +53,5 @@ function SearchInput() {
       </>
     );
   }
-  
+
   export default SearchInput
-  
