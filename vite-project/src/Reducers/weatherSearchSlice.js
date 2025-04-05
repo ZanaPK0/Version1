@@ -12,6 +12,8 @@ export const fetchWeather = createAsyncThunk(
         return rejectWithValue("Failed to fetch weather data");
       }
       const data = await response.json();
+      console.log(JSON.stringify(data, null, 2));
+
       return data; // This should be an array with objects from the API
     } catch (error) {
       return rejectWithValue(error.message);
