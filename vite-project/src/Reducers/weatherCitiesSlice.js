@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchMultipleCities = createAsyncThunk(
   "weatherCities/fetchMultipleCities",
   async (_, { rejectWithValue }) => {
-    const cities = ["Stockholm", "Goteborg", "Malmo"];
+    const cities = ["Stockholm", "Göteborg", "Malmö"];
 
     try {
       const responses = await Promise.all(

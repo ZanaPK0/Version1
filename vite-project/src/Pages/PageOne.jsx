@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMultipleCities } from "../Reducers/weatherCitiesSlice";
+import WeatherItem from "../Components/WeatherSearch/WeatherItem";
 
-const PageOne = () => {
+function PageOne() {
   const dispatch = useDispatch();
   const { citiesWeatherData, loading, error } = useSelector(
     (state) => state.weatherCities
@@ -17,20 +18,16 @@ const PageOne = () => {
 
   return (
     <main>
-      <div>
-        <h1>Weather for 3 Cities</h1>
-        {citiesWeatherData.map((cityWeather, index) => (
-          <div key={index}>
-            <h2>
-              {cityWeather.location.name}, {cityWeather.location.country}
-            </h2>
-            <p>Temperature: {cityWeather.current.temp_c} °C</p>
-            <p>Condition: {cityWeather.current.condition.text}</p>
-          </div>
-        ))}
-      </div>
+      <h1>Weather for 3 Cities</h1>
+      {citiesWeatherData && citiesWeatherData.length > 0 ? (
+        citiesWeatherData.map((weather, index) => (
+          <WeatherItem key={index} weather={weather} />
+        ))
+      ) : (
+        <p>No city data available.</p>
+      )}
     </main>
   );
-};
+}
 
 export default PageOne;

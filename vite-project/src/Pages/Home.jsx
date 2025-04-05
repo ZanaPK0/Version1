@@ -13,13 +13,15 @@ function Home(){
         <main className="h-5/6">
         <h2>Home</h2>
         <SearchInput />
-        {loading && <div>Loading weather data...</div>}
-        {error && <div>Error: {error}</div>}
-        {weatherData ? (
-        <WeatherItem data={weatherData} />
-      ) : (
-        !loading && <div>No weather data available.</div>
-      )}
+        <div className="weather-section mt-4">
+      {loading && <div>Loading weather data...</div>}
+      {error && <div>Error: {error}</div>}
+      {weatherData ? (
+          <WeatherItem weather={weatherData} />
+         ) : (
+    !loading && <div>No weather data available.</div>
+  )}
+</div>
 
         <h3>H3 TEST</h3>
         </main>
