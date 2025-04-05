@@ -17,9 +17,9 @@ function SearchInput() {
 
 
   // Having this makes it always load Stockholm when going back to HomePage. 
-    // useEffect(() => {
-    //     dispatch(fetchWeather("Stockholm"));
-    //   }, [dispatch]);
+    useEffect(() => {
+        dispatch(fetchWeather("London"));
+      }, [dispatch]);
 
 
 

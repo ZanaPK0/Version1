@@ -8,7 +8,6 @@ function App() {
   return (
     <>
      <Header pageOneName="secondtext" />
-     <h1>Welcome</h1>
      <Outlet />
      <Footer />
     </>
