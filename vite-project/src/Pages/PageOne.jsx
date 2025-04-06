@@ -4,10 +4,15 @@ import { fetchMultipleCities } from "../Reducers/weatherCitiesSlice";
 import WeatherItem from "../Components/WeatherSearch/WeatherItem";
 
 function PageOne() {
+
+
+
   const dispatch = useDispatch();
   const { citiesWeatherData, loading, error } = useSelector(
     (state) => state.weatherCities
   );
+
+
 
   useEffect(() => {
     dispatch(fetchMultipleCities());
@@ -28,6 +33,7 @@ function PageOne() {
           {citiesWeatherData && citiesWeatherData.length > 0 ? (
             citiesWeatherData.map((weather, index) => (
               <WeatherItem key={index} weather={weather} />
+
             ))
           ) : (
             !loading && <p className="text-gray-500">No weather data available...</p>

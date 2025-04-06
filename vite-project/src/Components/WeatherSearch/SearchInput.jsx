@@ -1,14 +1,15 @@
 import React, {useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchWeather, clearWeather } from "../../Reducers/weatherSearchSlice";
+import { fetchCurrentLocationWeather, clearWeather, fetchSearchedWeather } from "../../Reducers/weatherSearchSlice";
 
-function SearchInput() {
+function SearchInput({id}) {
 
 
   const dispatch = useDispatch();
   const [query, setQuery] = useState("");
 
 
+  
   const handleInputChange = (e) => {
 
     setQuery(e.target.value);
@@ -16,10 +17,10 @@ function SearchInput() {
 
 
 
-  // Having this makes it always load Stockholm when going back to HomePage. 
-    useEffect(() => {
-        dispatch(fetchWeather("London"));
-      }, [dispatch]);
+  // // Having this makes it always load Stockholm when going back to HomePage. 
+  //   useEffect(() => {
+  //       dispatch(fetchCurrentLocationWeather("London"));
+  //     }, [dispatch]);
 
 
 
@@ -29,7 +30,11 @@ function SearchInput() {
     e.preventDefault();
     dispatch(clearWeather()); // Clear previous weather data
     // Dispatch the fetchWeather thunk with the user's search query.
-    dispatch(fetchWeather(query));
+    if (e.target.id === "homePage") {
+      dispatch(fetchCurrentLocationWeather(query));
+      return
+    } 
+    dispatch(fetchSearchedWeather(query));
   };
 
 
@@ -38,7 +43,7 @@ function SearchInput() {
       <>
 
     <form onSubmit={handleSubmit} className="p-4">
-      <input
+      <input id={id}
         type="text"
         value={query}
         onChange={handleInputChange}

@@ -1,20 +1,57 @@
 // weatherSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchWeather = createAsyncThunk(
-  "weather/fetchWeather",
+// export const fetchWeather = createAsyncThunk(
+//   "weather/fetchWeather",
+//   async (query, { rejectWithValue }) => {
+//     try {
+//       const response = await fetch(
+//         `http://api.weatherapi.com/v1/current.json?key=3a253cdd5cf949d497f155913252603&q=${query}&aqi=yes`
+//       );
+//       if (!response.ok) {
+//         return rejectWithValue("Failed to fetch weather data");
+//       }
+//       const data = await response.json();
+//       console.log(JSON.stringify(data, null, 2));
+
+//       return data; // This should be an array with objects from the API
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+export const fetchCurrentLocationWeather = createAsyncThunk(
+  "weather/fetchCurrentLocationWeather",
   async (query, { rejectWithValue }) => {
     try {
       const response = await fetch(
         `http://api.weatherapi.com/v1/current.json?key=3a253cdd5cf949d497f155913252603&q=${query}&aqi=yes`
       );
       if (!response.ok) {
-        return rejectWithValue("Failed to fetch weather data");
+        return rejectWithValue("Failed to fetch weather for homepage");
       }
       const data = await response.json();
-      console.log(JSON.stringify(data, null, 2));
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
-      return data; // This should be an array with objects from the API
+export const fetchSearchedWeather = createAsyncThunk(
+  "weather/fetchSearchedWeather",
+  async (query, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `http://api.weatherapi.com/v1/forecast.json?key=3a253cdd5cf949d497f155913252603&q=${query}&days=1&aqi=no&alerts=no
+`
+      );
+      if (!response.ok) {
+        return rejectWithValue("Failed to fetch searched weather");
+      }
+      const data = await response.json();
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -24,7 +61,8 @@ export const fetchWeather = createAsyncThunk(
 const weatherSlice = createSlice({
   name: "weather", // renamed slice
   initialState: {
-    weatherData: [], // renamed property
+    currentLocationWeather: null, // for homepage (e.g., auto-detect or default city)
+    searchedWeather: null, // for user search results
     loading: false,
     error: null,
   },
@@ -35,21 +73,35 @@ const weatherSlice = createSlice({
       // Optionally reset loading if needed:
       state.loading = false;
     },
+
     // You can add synchronous reducers here if needed
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchWeather.pending, (state) => {
+      // Homepage (current location)
+      .addCase(fetchCurrentLocationWeather.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchWeather.fulfilled, (state, action) => {
-        console.log("Fetch fulfilled with payload:", action.payload);
+      .addCase(fetchCurrentLocationWeather.fulfilled, (state, action) => {
         state.loading = false;
-        state.weatherData = action.payload; // storing fetched weather data here
+        state.currentLocationWeather = action.payload;
       })
-      .addCase(fetchWeather.rejected, (state, action) => {
-        console.error("Fetch rejected:", action.payload, action.error);
+      .addCase(fetchCurrentLocationWeather.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || "Something went wrong";
+      })
+
+      // Search results
+      .addCase(fetchSearchedWeather.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchSearchedWeather.fulfilled, (state, action) => {
+        state.loading = false;
+        state.searchedWeather = action.payload;
+      })
+      .addCase(fetchSearchedWeather.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Something went wrong";
       });
@@ -57,5 +109,5 @@ const weatherSlice = createSlice({
 });
 
 export const { clearWeather } = weatherSlice.actions;
-
+export const { weather } = weatherSlice.actions;
 export default weatherSlice.reducer;
