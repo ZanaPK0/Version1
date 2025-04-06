@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 
 function PageTwo(){
 
-
+    const dispatch = useDispatch();
 
     const { searchedWeather, loading, error } = useSelector(
         (state) => state.weather ?? {}
@@ -26,7 +26,7 @@ function PageTwo(){
             <h2 className="text-3xl font-bold mb-4 text-blue-800">PageTwo</h2>
             <p className="mb-6 text-gray-600">Search for the weather in your city below:</p>
     
-            <SearchInput id="pageTwo" onSearch={(query) => dispatch(fetchSearchedWeather(query))} />
+            <SearchInput onSearch={(query) => dispatch(fetchSearchedWeather(query))} />
     
             <div className="mt-6">
               {loading && <p className="text-blue-500">Loading weather data...</p>}
