@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 
   
 
-function PageTwo( { forecast }){
+function PageTwo( ){
 
     const dispatch = useDispatch();
 
@@ -45,35 +45,22 @@ function PageTwo( { forecast }){
       {forecastDays.length > 0 && (
         <article className="mt-4 bg-gray-50 rounded-xl p-4 border border-gray-200 ">
           {forecastDays.map((forecastday) => (
-            <section key={forecastday.date} className="mb-2"  >
+            <article key={forecastday.date} className="mb-2"  >
                 <p><strong>Date:</strong> {forecastday.date}</p>
                 <p><strong>Max Temp:</strong> {forecastday.day.maxtemp_c}°C</p>
                 <p><strong>Avg Temp:</strong> {forecastday.day.avgtemp_c}°C</p>
                 <p><strong>Min Temp:</strong> {forecastday.day.mintemp_c}°C</p>
                 <p><strong>Condition:</strong> {forecastday.day.condition.text}</p>
 
-              {/* <section className="flex flex-row overflow-hidden overflow-x-scroll">                
-                {forecastday.hour.slice(0, 24).map((hourData, index) => (
-             <article
-             key={index}
-             className="bg-gray-100 p-3 rounded-lg shadow-sm flex-shrink-0 w-2/2 sm:w-1/2 md:w-1/3">
-                <p><strong>Time:</strong> {hourData.time}</p>
-                <p><strong>Temp:</strong> {hourData.temp_c}°C</p>
-                <p><strong>Condition:</strong> {hourData.condition.text}</p>
-              </article>
-                ))}
-                </section>  */}
-
-
-    <div>
+    <article>
       <h2 className="text-xl font-bold mb-4">Hourly Forecast</h2>
-      <HourlyForecast forecastday={forecast.forecastday[0]} />
-    </div>
+      <HourlyForecast forecastday={forecastday} />
+    </article>
 
 
 
 
-                </section>
+                </article>
           ))}
         </article>
       )}
