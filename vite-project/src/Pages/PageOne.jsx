@@ -54,7 +54,7 @@ function PageOne() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-sky-100 to-white p-6">
+    <main className="mb-14 min-h-screen bg-gradient-to-b from-sky-100 to-white p-6">
       <section className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-sky-800">Weather in different parts of Sweden</h1>
 
