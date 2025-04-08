@@ -54,8 +54,8 @@ function Home(){
     return (
       <main className="min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
         <div className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6">
-          <h2 className="text-3xl font-bold mb-4 text-blue-800">Home</h2>
-          <p className="mb-6 text-gray-600">Search for the weather in your city below:</p>
+          <h1 className="text-3xl font-bold mb-4 text-blue-800">Weather at specific location</h1>
+          <p className="mb-6 text-gray-600">Search for the weather in a city below:</p>
   
           <SearchInput onSearch={(query) => dispatch(fetchCurrentLocationWeather(query))} />
   

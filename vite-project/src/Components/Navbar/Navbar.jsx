@@ -2,15 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 
-const Navbar = ({
-    pageoneName
-}) => {
-    const [counter, setCounter] = useState(0);
-
-    useEffect(() => {
-        console.log({counter});
-    }, [counter])
-
+const Navbar = () => {
+   
     return (
         <nav className="flex flex-row">
 
@@ -18,12 +11,12 @@ const Navbar = ({
             Home
             </NavLink>
 
-            <NavLink to ="/PageOne" className="m-2 p-2" onClick={() => setCounter(counter+1)}>
-            {pageoneName} {counter}
+            <NavLink to ="/PageOne" className="m-2 p-2">
+            Sweden
             </NavLink>
 
             <NavLink to ="/PageTwo" className="m-2 p-2">
-            PageTwo
+            Forecast
             </NavLink>
 
         </nav>

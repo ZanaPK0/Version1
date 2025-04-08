@@ -34,8 +34,6 @@
 
 
 
-
-
 import React from "react";
 import { useSelector } from "react-redux";
 import SearchInput from "../Components/WeatherSearch/SearchInput"
@@ -64,8 +62,8 @@ function PageTwo( ){
 
         <main className="min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
           <section className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6">
-            <h2 className="text-3xl font-bold mb-4 text-blue-800">PageTwo</h2>
-            <p className="mb-6 text-gray-600">Search for the weather in your city below:</p>
+            <h2 className="text-3xl font-bold mb-4 text-blue-800">Daily Weather Forecast</h2>
+            <p className="mb-6 text-gray-600">Search for the weather in a city below:</p>
     
             <SearchInput onSearch={(query) => dispatch(fetchSearchedWeather(query))} />
     
@@ -94,16 +92,10 @@ function PageTwo( ){
       <h2 className="text-xl font-bold mb-4">Hourly Forecast</h2>
       <HourlyForecast forecastday={forecastday} />
     </article>
-
-
-
-
                 </article>
           ))}
         </article>
       )}
-            
-            
           </section>
         </main>
         </>
