@@ -1,3 +1,35 @@
+/**
+ * PageOne.jsx
+ * 
+ * This page displays current weather data for multiple predefined cities in Sweden.
+ * It automatically fetches and renders weather cards for each city using Redux state.
+ * 
+ * Redux:
+ * - Uses `useDispatch` to trigger `fetchMultipleCities` on component mount.
+ * - Uses `useSelector` to access:
+ *   - `citiesWeatherData`: an array of weather objects for selected Swedish cities.
+ *   - `loading`: boolean to show a loading state while fetching data.
+ *   - `error`: any errors returned during the fetch operation.
+ * 
+ * Components Used:
+ * - `WeatherItem`: A presentational card component that displays current weather
+ *   details for a single city.
+ * 
+ * Lifecycle:
+ * - On initial render, `useEffect` dispatches the `fetchMultipleCities` thunk.
+ * 
+ * UI Features:
+ * - Responsive grid layout to display multiple weather cards side by side.
+ * - Displays appropriate feedback for loading, errors, or empty results.
+ * - Tailwind CSS is used for modern and responsive styling.
+ * 
+ * Usage:
+ * Typically rendered on a route like `/cities` or `/sweden`, this page focuses
+ * on presenting multiple current-weather snapshots at once — not forecasts.
+ */
+
+
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMultipleCities } from "../Reducers/weatherCitiesSlice";

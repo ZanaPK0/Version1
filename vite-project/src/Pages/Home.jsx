@@ -1,4 +1,35 @@
-import React,  { useEffect } from "react";
+/**
+ * Home.jsx
+ * 
+ * This is the main landing page of the application. It allows users to search for weather
+ * in a specific city and displays the current weather conditions for the selected location.
+ * 
+ * Redux:
+ * - Uses `useDispatch` to trigger `fetchCurrentLocationWeather` when a city is searched.
+ * - Uses `useSelector` to access:
+ *   - `currentLocationWeather`: the current weather data for the selected city.
+ *   - `loading`: status for showing a loading indicator.
+ *   - `error`: any error message from the fetch operation.
+ * 
+ * Components Used:
+ * - `SearchInput`: A reusable search bar for entering city names.
+ * - `WeatherItem`: A card component to display current weather details.
+ * 
+ * UI Features:
+ * - Styled with Tailwind CSS to provide a modern, clean layout.
+ * - Handles different UI states:
+ *   - Loading
+ *   - Error
+ *   - No data
+ *   - Successfully fetched weather
+ * 
+ * Usage:
+ * This component is rendered at the `/` route. It manages only **current weather**, not forecasts.
+ * Forecast-related features are handled on a separate route/component (e.g. PageTwo).
+ */
+
+
+import React from "react";
 import { useSelector } from "react-redux";
 import SearchInput from "../Components/WeatherSearch/SearchInput"
 import WeatherItem from "../Components/WeatherSearch/WeatherItem"
