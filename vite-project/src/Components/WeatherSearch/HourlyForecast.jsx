@@ -1,6 +1,6 @@
 /**
  * HourlyForecast.jsx
- * 
+ *
  * This component displays the hourly weather forecast for a selected day.
  * It shows weather data for each hour in a scrollable horizontal layout.
  *
@@ -21,27 +21,14 @@
  * (e.g., `PageTwo`), where `forecastday` is passed as a prop.
  */
 
-
 import React from "react";
+import ArticleItem from "./ArticleItem";
 
 const HourlyForecast = ({ forecastday }) => {
   return (
     <section className="flex flex-row overflow-hidden overflow-x-scroll space-x-4">
       {forecastday.hour.slice(0, 24).map((hourData, index) => (
-        <article
-          key={index}
-          className="bg-gray-100 p-3 rounded-lg shadow-sm flex-shrink-0 w-2/2 sm:w-1/2 md:w-1/3"
-        >
-          <p>
-            <strong>Time:</strong> {hourData.time}
-          </p>
-          <p>
-            <strong>Temp:</strong> {hourData.temp_c}°C
-          </p>
-          <p>
-            <strong>Condition:</strong> {hourData.condition.text}
-          </p>
-        </article>
+        <ArticleItem hourData={hourData} key={index} />
       ))}
     </section>
   );
