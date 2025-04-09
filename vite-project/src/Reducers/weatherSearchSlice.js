@@ -68,13 +68,11 @@ const weatherSlice = createSlice({
   },
   reducers: {
     clearWeather: (state) => {
-      state.weatherData = null;
-      state.error = null;
-      // Optionally reset loading if needed:
+      state.currentLocationWeather = null;
+      state.searchedWeather = null;
       state.loading = false;
+      state.error = null;
     },
-
-    // You can add synchronous reducers here if needed
   },
   extraReducers: (builder) => {
     builder
@@ -92,7 +90,7 @@ const weatherSlice = createSlice({
         state.error = action.payload || "Something went wrong";
       })
 
-      // Search results
+      // Forecast search results
       .addCase(fetchSearchedWeather.pending, (state) => {
         state.loading = true;
         state.error = null;

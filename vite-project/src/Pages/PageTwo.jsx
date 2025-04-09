@@ -62,7 +62,7 @@ function PageTwo( ){
 
         <main className=" mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
           <section className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6">
-            <h2 className="text-3xl font-bold mb-4 text-blue-800">Weather Forecast</h2>
+            <h2 className="text-3xl font-bold mb-4 text-sky-800">Weather Forecast</h2>
             <p className="mb-6 text-gray-600">Search for the weather in a city below:</p>
     
             <SearchInput onSearch={(query) => dispatch(fetchSearchedWeather(query))} />

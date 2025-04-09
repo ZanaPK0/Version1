@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-     <Header pageOneName="secondtext" />
+     <Header />
      <Outlet />
      <Footer />
     </>
