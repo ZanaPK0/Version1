@@ -25,10 +25,13 @@
 
 
 
-import React, {useState, useEffect } from "react";
+import React, { useState } from "react";
+
+// query updateras aldrig direkt utan updateras med setQuery funktionen.
+//setQuery är en funktion som updaterar query. 
 
 const SearchInput = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(""); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
