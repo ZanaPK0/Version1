@@ -33,7 +33,7 @@ import { useSelector } from "react-redux";
 import SearchInput from "../Components/WeatherSearch/SearchInput";
 import WeatherItem from "../Components/WeatherSearch/WeatherItem";
 import { fetchCurrentLocationWeather } from "../Reducers/weatherSearchSlice";
-
+import ThemeButtons from "../Components/Themes/ThemeButtons";
 import { useDispatch } from "react-redux";
 
 function Home() {
@@ -45,7 +45,8 @@ function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
-      <div className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6">
+      <ThemeButtons />
+      <article className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6">
         <h1 className="text-3xl font-bold mb-4 text-sky-800">
           Weather at specific location
         </h1>
@@ -57,7 +58,7 @@ function Home() {
           onSearch={(query) => dispatch(fetchCurrentLocationWeather(query))}
         />
 
-        <div className="mt-6">
+        <section className="mt-6">
           {loading && <p className="text-blue-500">Loading weather data...</p>}
           {error && <p className="text-red-500">Error: {error}</p>}
           {currentLocationWeather ? (
@@ -67,8 +68,8 @@ function Home() {
               <p className="text-gray-500">No weather data available.</p>
             )
           )}
-        </div>
-      </div>
+        </section>
+      </article>
     </main>
   );
 }

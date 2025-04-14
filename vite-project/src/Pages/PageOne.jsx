@@ -32,6 +32,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMultipleCities } from "../Reducers/weatherCitiesSlice";
 import WeatherItem from "../Components/WeatherSearch/WeatherItem";
+import ThemeButtons from "../Components/Themes/ThemeButtons";
 
 function PageOne() {
   const dispatch = useDispatch();
@@ -61,6 +62,8 @@ function PageOne() {
       role="main"
       aria-label="Swedish cities weather overview"
     >
+      <ThemeButtons />
+
       <section className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-sky-800">
           Weather in different parts of Sweden

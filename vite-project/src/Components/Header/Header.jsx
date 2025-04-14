@@ -1,8 +1,9 @@
 import Navbar from "../Navbar/Navbar";
+import ThemeButtons from "../Themes/ThemeButtons";
 
 function Header() {
   return (
-    <header className=" h-20 w-12/12 flex flex-col justify-around items-center bg-yellow-500">
+    <header className=" h-20 w-12/12 flex flex-col justify-around items-center bg-yellow-500 dark:bg-gray-900">
       <h1 className="font-bold text-3xl text-blue-600">Weather Information</h1>
       <Navbar />
     </header>

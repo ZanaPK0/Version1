@@ -4,15 +4,15 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="flex flex-row">
-      <NavLink to="/" className="m-2 p-2">
+      <NavLink to="/" className="m-2 p-2 dark:text-white">
         Home
       </NavLink>
 
-      <NavLink to="/PageOne" className="m-2 p-2">
+      <NavLink to="/PageOne" className="m-2 p-2 dark:text-white">
         Sweden
       </NavLink>
 
-      <NavLink to="/PageTwo" className="m-2 p-2">
+      <NavLink to="/PageTwo" className="m-2 p-2 dark:text-white">
         Forecast
       </NavLink>
     </nav>

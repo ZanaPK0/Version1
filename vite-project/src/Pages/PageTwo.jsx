@@ -40,6 +40,7 @@ import WeatherItem from "../Components/WeatherSearch/WeatherItem";
 import { fetchSearchedWeather } from "../Reducers/weatherSearchSlice";
 import HourlyForecast from "../Components/WeatherSearch/HourlyForecast";
 import { useDispatch } from "react-redux";
+import ThemeButtons from "../Components/Themes/ThemeButtons";
 
 function PageTwo() {
   const dispatch = useDispatch();
@@ -73,6 +74,8 @@ function PageTwo() {
         role="main"
         aria-label="Weather search and forecast section"
       >
+        <ThemeButtons />
+
         <section
           className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6"
           role="region"
