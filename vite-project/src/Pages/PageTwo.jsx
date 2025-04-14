@@ -33,6 +33,7 @@
  */
 
 import React from "react";
+import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import SearchInput from "../Components/WeatherSearch/SearchInput";
 import WeatherItem from "../Components/WeatherSearch/WeatherItem";
@@ -47,9 +48,27 @@ function PageTwo() {
   );
   const forecastDays = searchedWeather?.forecast?.forecastday ?? [];
 
+  // Focus ref for search results
+  const resultsRef = useRef(null);
+
+  useEffect(() => {
+    if (searchedWeather && resultsRef.current) {
+      resultsRef.current.focus();
+    }
+  }, [searchedWeather]);
+
   return (
     <>
+      {/* Skip Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only absolute top-2 left-2 z-50 bg-white text-blue-700 px-3 py-1 rounded shadow"
+      >
+        Skip to main content
+      </a>
+
       <main
+        id="main-content"
         className="mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6"
         role="main"
         aria-label="Weather search and forecast section"
@@ -74,9 +93,11 @@ function PageTwo() {
           />
 
           <article
-            className="mt-6"
+            className="mt-6 outline-none"
             role="region"
             aria-label="Current weather results"
+            ref={resultsRef}
+            tabIndex={-1} // makes it programmatically focusable
           >
             {loading && (
               <p className="text-blue-500" role="status" aria-live="polite">
