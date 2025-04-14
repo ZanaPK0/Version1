@@ -37,7 +37,6 @@ import { fetchCurrentLocationWeather } from "../Reducers/weatherSearchSlice";
 import { useDispatch } from "react-redux";
 
 function Home() {
-  // const { weatherData, loading, error } = useSelector((state) => state.weather);
   const dispatch = useDispatch();
 
   const { currentLocationWeather, loading, error } = useSelector(

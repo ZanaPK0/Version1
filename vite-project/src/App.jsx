@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 import Layout from "./Components/WeatherSearch/Layout";
 
-// <Outlet/> är nu children till <Layout> komponenten.
+// <Outlet/> is now children to <Layout> component.
 
 function App() {
   return (
