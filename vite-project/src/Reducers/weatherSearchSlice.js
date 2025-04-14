@@ -21,6 +21,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 //   }
 // );
 
+
 export const fetchCurrentLocationWeather = createAsyncThunk(
   "weather/fetchCurrentLocationWeather",
   async (query, { rejectWithValue }) => {

@@ -1,17 +1,13 @@
 import SearchInput from "./SearchInput";
 import WeatherItem from "./WeatherItem";
 
-
-
 function SearchSection() {
+  return (
+    <>
+      <SearchInput />
+      <WeatherItem />
+    </>
+  );
+}
 
-    return (
-      <>
-       <SearchInput />
-       <WeatherItem />
-      </>
-    );
-  }
-  
-  export default SearchSection
-  
+export default SearchSection;
