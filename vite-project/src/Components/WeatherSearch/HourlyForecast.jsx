@@ -26,9 +26,18 @@ import ArticleItem from "./ArticleItem";
 
 const HourlyForecast = ({ forecastday }) => {
   return (
-    <section className="flex flex-row overflow-hidden overflow-x-scroll space-x-4">
+    <section
+      className="flex flex-row overflow-hidden overflow-x-scroll space-x-4"
+      role="region"
+      aria-label="Hourly weather forecast"
+      tabIndex={0} // makes the region focusable for keyboard/screen reader users
+    >
       {forecastday.hour.slice(0, 24).map((hourData, index) => (
-        <ArticleItem hourData={hourData} key={index} />
+        <ArticleItem
+          hourData={hourData}
+          key={index}
+          aria-label={`Forecast for ${hourData.time}: ${hourData.temp_c}°C and ${hourData.condition.text}`}
+        />
       ))}
     </section>
   );

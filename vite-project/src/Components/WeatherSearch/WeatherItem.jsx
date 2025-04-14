@@ -28,33 +28,47 @@
 
 function WeatherItem({ weather }) {
   if (!weather || !weather.location || !weather.current) {
-    return <div>No Weather Data available...</div>;
+    return <div role="alert">No Weather Data available...</div>;
   }
 
   const { location, current } = weather;
 
   return (
-    <main className="bg-white shadow-md rounded-xl p-4 border border-gray-100">
+    <main
+      className="bg-white shadow-md rounded-xl p-4 border border-gray-100"
+      role="region"
+      aria-label={`Weather for ${location.name}, ${location.country}`}
+    >
       <h2 className="text-xl font-semibold text-blue-700 mb-2">
         {location.name}, {location.country}
       </h2>
 
-      <div className="text-sm text-gray-600 mb-2">
+      <div className="text-sm text-gray-600 mb-2" aria-label="Location details">
         <p>
-          <strong>Region:</strong> {location.region}
+          <strong>Region:</strong>{" "}
+          <span aria-label={`Region: ${location.region}`}>
+            {location.region}
+          </span>
         </p>
         <p>
-          <strong>Local Time:</strong> {location.localtime}
+          <strong>Local Time:</strong>{" "}
+          <time dateTime={location.localtime}>{location.localtime}</time>
         </p>
       </div>
 
-      <div>
+      <div aria-label="Current weather conditions">
         <h3 className="font-medium text-gray-800">Current Conditions</h3>
         <p>
-          <strong>Temperature:</strong> {current.temp_c}°C
+          <strong>Temperature:</strong>{" "}
+          <span aria-label={`Temperature: ${current.temp_c} degrees Celsius`}>
+            {current.temp_c}°C
+          </span>
         </p>
         <p>
-          <strong>Condition:</strong> {current.condition.text}
+          <strong>Condition:</strong>{" "}
+          <span aria-label={`Condition: ${current.condition.text}`}>
+            {current.condition.text}
+          </span>
         </p>
       </div>
     </main>

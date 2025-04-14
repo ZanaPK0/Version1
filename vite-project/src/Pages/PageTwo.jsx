@@ -42,7 +42,6 @@ import { useDispatch } from "react-redux";
 
 function PageTwo() {
   const dispatch = useDispatch();
-
   const { searchedWeather, loading, error } = useSelector(
     (state) => state.weather ?? {}
   );
@@ -50,9 +49,20 @@ function PageTwo() {
 
   return (
     <>
-      <main className=" mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
-        <section className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6">
-          <h2 className="text-3xl font-bold mb-4 text-sky-800">
+      <main
+        className="mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6"
+        role="main"
+        aria-label="Weather search and forecast section"
+      >
+        <section
+          className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6"
+          role="region"
+          aria-labelledby="forecast-heading"
+        >
+          <h2
+            id="forecast-heading"
+            className="text-3xl font-bold mb-4 text-sky-800"
+          >
             Weather Forecast
           </h2>
           <p className="mb-6 text-gray-600">
@@ -63,28 +73,51 @@ function PageTwo() {
             onSearch={(query) => dispatch(fetchSearchedWeather(query))}
           />
 
-          <article className="mt-6">
+          <article
+            className="mt-6"
+            role="region"
+            aria-label="Current weather results"
+          >
             {loading && (
-              <p className="text-blue-500">Loading weather data...</p>
+              <p className="text-blue-500" role="status" aria-live="polite">
+                Loading weather data...
+              </p>
             )}
-            {error && <p className="text-red-500">Error: {error}</p>}
+            {error && (
+              <p className="text-red-500" role="alert">
+                Error: {error}
+              </p>
+            )}
             {searchedWeather ? (
               <WeatherItem weather={searchedWeather} />
             ) : (
               !loading && (
-                <p className="text-gray-500">No weather data available.</p>
+                <p className="text-gray-500" role="note">
+                  No weather data available.
+                </p>
               )
             )}
           </article>
 
-          {/* Render forecast info below each weather card */}
+          {/* Forecast info */}
           {forecastDays.length > 0 && (
-            <article className="mt-4 bg-gray-50 rounded-xl p-4 border border-gray-200 ">
+            <section
+              className="mt-4 bg-gray-50 rounded-xl p-4 border border-gray-200"
+              role="region"
+              aria-label="Multi-day forecast"
+            >
               {forecastDays.map((forecastday) => (
-                <article key={forecastday.date} className="mb-2">
-                  <p>
-                    <strong>Date:</strong> {forecastday.date}
-                  </p>
+                <article
+                  key={forecastday.date}
+                  className="mb-6"
+                  aria-labelledby={`day-${forecastday.date}`}
+                >
+                  <h3
+                    id={`day-${forecastday.date}`}
+                    className="text-lg font-semibold mb-2"
+                  >
+                    Forecast for {forecastday.date}
+                  </h3>
                   <p>
                     <strong>Max Temp:</strong> {forecastday.day.maxtemp_c}°C
                   </p>
@@ -98,17 +131,22 @@ function PageTwo() {
                     <strong>Condition:</strong> {forecastday.day.condition.text}
                   </p>
 
-                  <article>
-                    <h2 className="text-xl font-bold mb-4">Hourly Forecast</h2>
+                  <section
+                    role="region"
+                    aria-label={`Hourly forecast for ${forecastday.date}`}
+                    className="mt-4"
+                  >
+                    <h4 className="text-xl font-bold mb-2">Hourly Forecast</h4>
                     <HourlyForecast forecastday={forecastday} />
-                  </article>
+                  </section>
                 </article>
               ))}
-            </article>
+            </section>
           )}
         </section>
       </main>
     </>
   );
 }
+
 export default PageTwo;
