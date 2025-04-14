@@ -63,21 +63,21 @@ function PageTwo() {
       {/* Skip Link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only absolute top-2 left-2 z-50 bg-white text-blue-700 px-3 py-1 rounded shadow"
+        className="sr-only focus:not-sr-only absolute top-2 left-2 z-50 bg-white text-blue-700 px-3 py-1 rounded shadow "
       >
         Skip to main content
       </a>
 
       <main
         id="main-content"
-        className="mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6"
+        className="mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6 "
         role="main"
         aria-label="Weather search and forecast section"
       >
         <ThemeButtons />
 
         <section
-          className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6"
+          className="max-w-3xl mx-auto bg-cyan-50 rounded-2xl shadow-md p-6 "
           role="region"
           aria-labelledby="forecast-heading"
         >
@@ -96,7 +96,7 @@ function PageTwo() {
           />
 
           <article
-            className="mt-6 outline-none"
+            className="mt-6 outline-none "
             role="region"
             aria-label="Current weather results"
             ref={resultsRef}
@@ -126,7 +126,7 @@ function PageTwo() {
           {/* Forecast info */}
           {forecastDays.length > 0 && (
             <section
-              className="mt-4 bg-gray-50 rounded-xl p-4 border border-gray-200"
+              className="mt-4 bg-gray-50 rounded-xl p-4 border border-gray-200 dark:bg-gray-800 dark:text-orange-300"
               role="region"
               aria-label="Multi-day forecast"
             >
@@ -138,7 +138,7 @@ function PageTwo() {
                 >
                   <h3
                     id={`day-${forecastday.date}`}
-                    className="text-lg font-semibold mb-2"
+                    className="text-lg font-semibold mb-2 "
                   >
                     Forecast for {forecastday.date}
                   </h3>

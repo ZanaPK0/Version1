@@ -27,7 +27,7 @@ import ArticleItem from "./ArticleItem";
 const HourlyForecast = ({ forecastday }) => {
   return (
     <section
-      className="flex flex-row overflow-hidden overflow-x-scroll space-x-4"
+      className="flex flex-row overflow-hidden overflow-x-scroll space-x-4 "
       role="region"
       aria-label="Hourly weather forecast"
       tabIndex={0} // makes the region focusable for keyboard/screen reader users

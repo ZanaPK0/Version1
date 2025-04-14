@@ -35,15 +35,18 @@ function WeatherItem({ weather }) {
 
   return (
     <main
-      className="bg-white shadow-md rounded-xl p-4 border border-gray-100"
+      className="bg-white shadow-md rounded-xl p-4 border border-gray-100 dark:bg-gray-800 dark:text-orange-300"
       role="region"
       aria-label={`Weather for ${location.name}, ${location.country}`}
     >
-      <h2 className="text-xl font-semibold text-blue-700 mb-2">
+      <h2 className="text-xl font-semibold text-blue-700 mb-2 dark:text-amber-200">
         {location.name}, {location.country}
       </h2>
 
-      <div className="text-sm text-gray-600 mb-2" aria-label="Location details">
+      <div
+        className="text-sm text-gray-600 mb-2 dark:text-orange-300"
+        aria-label="Location details "
+      >
         <p>
           <strong>Region:</strong>{" "}
           <span aria-label={`Region: ${location.region}`}>
