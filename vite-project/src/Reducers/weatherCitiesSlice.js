@@ -1,4 +1,33 @@
-// weatherCitiesSlice.js
+/**
+ * weatherCitiesSlice.js
+ *
+ * This Redux slice manages the state for current weather data across multiple cities.
+ *
+ * Overview:
+ * - Asynchronous Thunk: Uses `createAsyncThunk` to fetch weather data for a list of cities:
+ *   - Cities: Stockholm, Göteborg, and Malmö.
+ *   - Fetch Logic: Sends multiple API requests to WeatherAPI; all must succeed or the fetch is rejected.
+ *
+ * Thunk: `fetchMultipleCities`
+ * - Purpose: Fetches current weather data for defined cities.
+ * - Error Handling: If any request fails, returns a rejection with a relevant error message.
+ * - Response: On success, returns an array of weather data objects (one per city).
+ *
+ * State:
+ * - `citiesWeatherData` (Array): Stores fetched weather data for the cities.
+ * - `loading` (Boolean): Indicates if data is being fetched.
+ * - `error` (String | null): Stores error messages from failed requests.
+ *
+ * Extra Reducers:
+ * - `.pending`: Sets `loading` to true, resets `error`.
+ * - `.fulfilled`: Populates `citiesWeatherData`, sets `loading` to false.
+ * - `.rejected`: Sets `loading` to false, updates `error`.
+ *
+ * Usage:
+ * - Import and include the reducer in your Redux store.
+ * - Dispatch `fetchMultipleCities` to trigger the fetch logic.
+ */
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchMultipleCities = createAsyncThunk(

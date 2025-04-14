@@ -1,26 +1,45 @@
-// weatherSlice.js
+/**
+ * weatherSlice.js
+ *
+ * This Redux slice handles weather data fetching and state management for:
+ * - The user's current/default location (homepage)
+ * - Weather search results (user queries)
+ *
+ * Thunks:
+ * - `fetchCurrentLocationWeather`:
+ *   - Fetches current weather data based on a provided query (e.g., city name or coordinates).
+ *   - Used for homepage data (e.g., default or geolocation-based city).
+ *   - Returns JSON data or rejects with an error message.
+ *
+ * - `fetchSearchedWeather`:
+ *   - Fetches forecast weather data for 1 day based on user input.
+ *   - Used when a user searches for a specific location.
+ *   - Returns JSON data or rejects with an error message.
+ *
+ * State:
+ * - `currentLocationWeather` (Object | null): Stores homepage location weather data.
+ * - `searchedWeather` (Object | null): Stores forecast data from a user's search.
+ * - `loading` (Boolean): Indicates whether a request is in progress.
+ * - `error` (String | null): Holds any error messages from fetch failures.
+ *
+ * Reducers:
+ * - `clearWeather`: Resets both weather states, loading flag, and error.
+ *
+ * Extra Reducers:
+ * - Handles all three async states (pending, fulfilled, rejected) for each thunk:
+ *   - `fetchCurrentLocationWeather`
+ *   - `fetchSearchedWeather`
+ *   - Updates appropriate state values based on request results.
+ *
+ * Usage:
+ * - Add the reducer to your Redux store configuration.
+ * - Dispatch `fetchCurrentLocationWeather` on load for homepage data.
+ * - Dispatch `fetchSearchedWeather` when users search for weather.
+ * - Call `clearWeather` to reset weather-related state (e.g., on unmount or reset).
+ *
+ */
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-// export const fetchWeather = createAsyncThunk(
-//   "weather/fetchWeather",
-//   async (query, { rejectWithValue }) => {
-//     try {
-//       const response = await fetch(
-//         `http://api.weatherapi.com/v1/current.json?key=3a253cdd5cf949d497f155913252603&q=${query}&aqi=yes`
-//       );
-//       if (!response.ok) {
-//         return rejectWithValue("Failed to fetch weather data");
-//       }
-//       const data = await response.json();
-//       console.log(JSON.stringify(data, null, 2));
-
-//       return data; // This should be an array with objects from the API
-//     } catch (error) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 
 export const fetchCurrentLocationWeather = createAsyncThunk(
   "weather/fetchCurrentLocationWeather",

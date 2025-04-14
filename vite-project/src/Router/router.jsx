@@ -1,30 +1,29 @@
-import App from "../App" 
-import Home from "../Pages/Home"
-import PageOne from "../Pages/PageOne"
-import PageTwo from "../Pages/PageTwo"
-import { createBrowserRouter } from "react-router-dom"
+import App from "../App";
+import Home from "../Pages/Home";
+import PageOne from "../Pages/PageOne";
+import PageTwo from "../Pages/PageTwo";
+import { createBrowserRouter } from "react-router-dom";
 
-
-const router = createBrowserRouter([{
-    path:"/",
+const router = createBrowserRouter([
+  {
+    path: "/",
     element: <App />,
     children: [
-        {
-            index: true,
-            element: <Home />
-    },
+      {
+        index: true,
+        element: <Home />,
+      },
 
-    {
+      {
         path: "PageOne",
-        element: <PageOne/>
-    },
-    {
+        element: <PageOne />,
+      },
+      {
         path: "PageTwo",
-        element: <PageTwo/>
-    },
-    
-],
-},
+        element: <PageTwo />,
+      },
+    ],
+  },
 ]);
 
 export default router;
