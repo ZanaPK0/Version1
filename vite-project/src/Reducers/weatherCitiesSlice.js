@@ -33,13 +33,15 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchMultipleCities = createAsyncThunk(
   "weatherCities/fetchMultipleCities",
   async (_, { rejectWithValue }) => {
-    const cities = ["Stockholm", "Göteborg", "Malmö"];
+    const cities = ["Stockholm", "Gothenburg", "Malmo"];
 
     try {
       const responses = await Promise.all(
         cities.map((city) =>
           fetch(
-            `http://api.weatherapi.com/v1/current.json?key=3a253cdd5cf949d497f155913252603&q=${city}&aqi=yes`
+            `http://api.weatherapi.com/v1/current.json?key=3a253cdd5cf949d497f155913252603&q=${encodeURIComponent(
+              city
+            )}&aqi=yes`
           )
         )
       );

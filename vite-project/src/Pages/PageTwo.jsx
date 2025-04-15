@@ -82,7 +82,6 @@ function PageTwo() {
             className="mt-6 outline-none "
             role="region"
             aria-label="Current weather results"
-            ref={resultsRef}
             tabIndex={-1} // makes it programmatically focusable
           >
             {loading && (
