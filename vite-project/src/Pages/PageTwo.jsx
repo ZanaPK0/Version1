@@ -33,7 +33,6 @@
  */
 
 import React from "react";
-import { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import SearchInput from "../Components/WeatherSearch/SearchInput";
 import WeatherItem from "../Components/WeatherSearch/WeatherItem";
