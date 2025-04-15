@@ -49,15 +49,6 @@ function PageTwo() {
   );
   const forecastDays = searchedWeather?.forecast?.forecastday ?? [];
 
-  // Focus ref for search results
-  const resultsRef = useRef(null);
-
-  useEffect(() => {
-    if (searchedWeather && resultsRef.current) {
-      resultsRef.current.focus();
-    }
-  }, [searchedWeather]);
-
   return (
     <>
       <main
