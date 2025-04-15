@@ -46,8 +46,3 @@ JavaScript (ES6+) – For modern syntax, promises, async/await, and better code 
 Tailwindcss – For styling the application with a clean, responsive layout.
 
 These choices were made to ensure good performance, scalability, and ease of development.
-
----
-
-Förklara, hur jag använder redux, routing, useEffect,useState
-hur det funkar.
