@@ -60,14 +60,6 @@ function PageTwo() {
 
   return (
     <>
-      {/* Skip Link */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only absolute top-2 left-2 z-50 bg-white text-blue-700 px-3 py-1 rounded shadow "
-      >
-        Skip to main content
-      </a>
-
       <main
         id="main-content"
         className="mb-14 min-h-screen bg-gradient-to-b from-blue-100 to-white p-6 "
