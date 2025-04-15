@@ -14,7 +14,7 @@ Follow these steps to get Weatherz up and running on your local machine:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/weatherz.git
+git clone https://github.com/ZanaPK0/Version1
 
 # 2. Navigate to the project folder
 cd vite-project
@@ -39,9 +39,15 @@ Vite – A modern frontend build tool for faster development and optimized produ
 Redux Toolkit – To manage global state, especially asynchronous API calls and shared data.
 
 Weather API – Used to fetch real-time weather data for any city.
+-----WEATHER API LINK = https://www.weatherapi.com --------
 
 JavaScript (ES6+) – For modern syntax, promises, async/await, and better code readability.
 
 Tailwindcss – For styling the application with a clean, responsive layout.
 
 These choices were made to ensure good performance, scalability, and ease of development.
+
+---
+
+Förklara, hur jag använder redux, routing, useEffect,useState
+hur det funkar.
