@@ -1,5 +1,4 @@
 import Navbar from "../Navbar/Navbar";
-import ThemeButtons from "../Themes/ThemeButtons";
 
 function Header() {
   return (
