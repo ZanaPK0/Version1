@@ -60,7 +60,9 @@ function WeatherItem({ weather }) {
       </div>
 
       <div aria-label="Current weather conditions">
-        <h3 className="font-medium text-gray-800">Current Conditions</h3>
+        <h3 className="font-medium text-gray-800 dark:text-amber-600">
+          Current Conditions
+        </h3>
         <p>
           <strong>Temperature:</strong>{" "}
           <span aria-label={`Temperature: ${current.temp_c} degrees Celsius`}>
