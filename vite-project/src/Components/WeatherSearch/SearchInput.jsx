@@ -29,6 +29,7 @@ import React, { useState } from "react";
 
 const SearchInput = ({ onSearch }) => {
   const [query, setQuery] = useState("");
+  // query holds current value, setQuery is the function to update query, useState("") initializes query to empty string.
 
   const handleSubmit = (e) => {
     e.preventDefault();
