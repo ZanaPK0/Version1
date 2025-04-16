@@ -37,8 +37,7 @@ import ThemeButtons from "../Components/Themes/ThemeButtons";
 import { useDispatch } from "react-redux";
 
 function Home() {
-  const dispatch = useDispatch();
-
+  const dispatch = useDispatch(); // this gives me access to the Redux store's dispatch function.
   const { currentLocationWeather, loading, error } = useSelector(
     (state) => state.weather ?? {}
   );
@@ -55,7 +54,7 @@ function Home() {
         </p>
 
         <SearchInput
-          onSearch={(query) => dispatch(fetchCurrentLocationWeather(query))}
+          onSearch={(query) => dispatch(fetchCurrentLocationWeather(query))} // When user submits a city, it dispatches the fetchCurrentLocationWeather(query) action.
         />
 
         <section className="mt-6">

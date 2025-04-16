@@ -42,7 +42,7 @@ function PageOne() {
 
   useEffect(() => {
     dispatch(fetchMultipleCities());
-  }, [dispatch]);
+  }, [dispatch]); // I am calling dispatch(fetchMultipleCities()); to dispatch an async thunk, the API call fetch for multiplecities. This runs only on mount.
 
   if (loading) {
     return (
