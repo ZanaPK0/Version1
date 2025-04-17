@@ -40,7 +40,7 @@ function Home() {
   const dispatch = useDispatch(); // this gives me access to the Redux store's dispatch function.
   const { currentLocationWeather, loading, error } = useSelector(
     (state) => state.weather ?? {}
-  );
+  ); // useSelector : pulls specific slices of state from my Redux Store. currentLocationWeather, loading, error.
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-100 to-white p-6">
