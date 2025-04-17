@@ -26,7 +26,7 @@ import weatherCitiesReducer from "../Reducers/weatherCitiesSlice";
 
 const store = configureStore({
   reducer: {
-    weather: weatherReducer,
+    weather: weatherReducer, // This maps the key weather in the global state to whatever logic is inside weatherReducer
     weatherCities: weatherCitiesReducer,
   },
 });

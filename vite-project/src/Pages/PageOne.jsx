@@ -38,11 +38,11 @@ function PageOne() {
   const dispatch = useDispatch();
   const { citiesWeatherData, loading, error } = useSelector(
     (state) => state.weatherCities
-  );
+  ); // useSelector listens to the changes of weatherCities slice as the thunk progresses.
 
   useEffect(() => {
     dispatch(fetchMultipleCities());
-  }, [dispatch]); // I am calling dispatch(fetchMultipleCities()); to dispatch an async thunk, the API call fetch for multiplecities. This runs only on mount.
+  }, [dispatch]); // calling dispatch(fetchMultipleCities()); to dispatch an async thunk, the API call fetch for multiplecities. This runs only on mount.
 
   if (loading) {
     return (

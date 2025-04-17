@@ -14,3 +14,7 @@ createRoot(document.getElementById("root")).render(
     </Provider>
   </StrictMode>
 );
+
+// Redux store becomes available to the entire app, useSelector and useDispatch relies on this wrapper (store)
+
+// Takes router object created via createBrowserRouter(), Automatically handles route rendering based on path. (router)
